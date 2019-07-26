@@ -12,11 +12,11 @@ This app takes a sentence and a word from the user and returns how many times th
 | Spec | Input | Output |
 | :-------------     | :------------- | :------------- |
 | **Asks the user for a sentence** | "I walked my dog today", "dog" | string sentence = "I walked my dog today", string word = "dog"|
-|This example is a short and relatively basic/common sentence structure/word choice.|
+|This example is a short and relatively basic/common sentence structure/word choice and would return a value of "1 occurance".|
 | **Checks the sentence for occurances of the word** | "Does Will Smith smith?", "smith" | int occur = 2; |
 |This example is a less common than the first, being a portion of a tongue twister, but is a good example of a repeated word.|
 | **Only counts words that are a full word** | "Can a woodchuck chuck wood", "wood" or "chuck" | int occur = 1; |
-|Technically 'wood' and 'chuck' occur twice in this sentence but we only want to return the number standalone occurances.| 
+|Technically 'wood' and 'chuck' can be found twice in this sentence but we only want to return the number standalone occurances.| 
 
 
 

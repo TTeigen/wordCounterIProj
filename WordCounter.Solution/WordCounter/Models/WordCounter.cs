@@ -7,23 +7,25 @@ namespace WordCounter
     {
         private List<char> SpecialChars = new List<char>(){'!','.',',','"','?',':',';'};
         public static int occur {get; set;}
-        public static int countRepeats(string sentence, string word) //sentence needs to be "cleaned" of special characters before using this method
+        public static int countRepeats(string sentence, string word)
         {
-            occur = 0;
             
+            occur = 0;
             string[] separated = sentence.ToLower().Split(" ");
-            Console.WriteLine($"Word: {word}");
             for(int i = 0; i < separated.Length; i++)
             {
-                Console.WriteLine($"Separated: {separated[i]}");
-                if (separated[i] == word.ToLower())
+                string wordCheck = separated[i].Substring(0,separated[i].Length-1);
+                if (wordCheck == word.ToLower())
                 {
                     occur++;
-                    Console.WriteLine($"Occur: {occur}");
+                } else if (separated[i] == word.ToLower())
+                {
+                    occur++;
                 }
             }
             return occur;
         }
+    //Method for "cleaning" the sentence of special chars (does not work yet)
         public static string sentenceCleaner(string sentence)
         {
             string[] cleaner = sentence.ToLower().Split();
