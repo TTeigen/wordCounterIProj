@@ -16,7 +16,10 @@ namespace WordCounter
                 //runs results method
                 resultPrinter(sentence,word);
                 //check to keep running program
-                Console.WriteLine("\n Would you like to try again? [no or n to stop]");
+                Console.Write("\nWould you like to try again");
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.Write("[no or n to stop]\n");
+                Console.ResetColor();
                 string userInput = Console.ReadLine().ToLower();
                 if (userInput == "no" || userInput == "n")
                 {
@@ -31,7 +34,15 @@ namespace WordCounter
             int occur = RepeatCounter.countRepeats(cleaned, word);
             if (occur > 0)
             {
-                Console.WriteLine($"Your word '{word}' repeats in the sentence you supplied {occur} time(s).");
+                Console.Write("Your word ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write($"'{word}' ");
+                Console.ResetColor();
+                Console.Write("repeats in the sentence you supplied ");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write($"{occur} ");
+                Console.ResetColor();
+                Console.Write("time(s).");
             }
             else
             {
