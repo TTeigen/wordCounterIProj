@@ -5,7 +5,7 @@ namespace WordCounter
 {
     public class RepeatCounter
     {
-        //list of special characters for use with sentenceCleaner
+        //list of special characters for use with sentenceCleaner in lieu of regex
         private static List<char> SpecialChars = new List<char>(){'!','.',',','"','?',':',';'};
         // ' not included because it's a rare edge case that it would be used and not in the proper spelling of the word
         //Other special chars not included for a similar reason
