@@ -5,35 +5,40 @@ namespace WordCounter
 {
     public class RepeatCounter
     {
-        private List<char> SpecialChars = new List<char>(){'!','.',',','"','?',':',';'};
+        //list of special characters for use with sentenceCleaner
+        private static List<char> SpecialChars = new List<char>(){'!','.',',','"','?',':',';'};
+        // ' not included because it's a rare edge case that it would be used and not in the proper spelling of the word
+        //Other special chars not included for a similar reason
         public static int occur {get; set;}
         public static int countRepeats(string sentence, string word)
         {
-            
             occur = 0;
             string[] separated = sentence.ToLower().Split(" ");
             for(int i = 0; i < separated.Length; i++)
             {
-                string wordCheck = separated[i].Substring(0,separated[i].Length-1);
-                if (wordCheck == word.ToLower())
-                {
-                    occur++;
-                } else if (separated[i] == word.ToLower())
+                if (separated[i] == word.ToLower())
                 {
                     occur++;
                 }
             }
             return occur;
         }
-    //Method for "cleaning" the sentence of special chars (does not work yet)
+    //Method for "cleaning" the sentence of special chars (somewhat unnecessary but cool)
         public static string sentenceCleaner(string sentence)
         {
             string[] cleaner = sentence.ToLower().Split();
             for (int i = 0; i < cleaner.Length; i++)
-            {
-                
+            {   
+                foreach(char special in SpecialChars)
+                {  
+                    if (cleaner[i].Contains(special))
+                    {
+                        cleaner[i] = cleaner[i].Replace(special,' ');
+                    }
+                }
             }
-            return  sentence; 
+            sentence = string.Join(" ", cleaner);
+            return  sentence;
         }
     }
 }
